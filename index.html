@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="RepUp — Tu plataforma interactiva de entrenamiento."
+    >
+
+    <title>RepUp — Tu entrenamiento, evolucionado</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/main.js"></script>
+
+    <!-- CSS se conectará después -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body>
+
+    <!-- =========================================================
+         APP
+    ========================================================== -->
+    <div id="app">
+
+        <!-- =====================================================
+             SIDEBAR / DESKTOP NAVIGATION
+        ====================================================== -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar__brand">
+                <a href="#home" class="brand">
+                    <span class="brand__icon">R</span>
+                    <span class="brand__name">
+                        Rep<span>Up</span>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="sidebar__navigation" aria-label="Navegación principal">
+
+                <a
+                    href="#home"
+                    class="navigation-link navigation-link--active"
+                    data-view="home"
+                >
+                    <span class="navigation-link__icon">⌂</span>
+                    <span class="navigation-link__label">Inicio</span>
+                </a>
+
+                <a
+                    href="#builder"
+                    class="navigation-link"
+                    data-view="builder"
+                >
+                    <span class="navigation-link__icon">＋</span>
+                    <span class="navigation-link__label">Crear rutina</span>
+                </a>
+
+                <a
+                    href="#workout"
+                    class="navigation-link"
+                    data-view="workout"
+                >
+                    <span class="navigation-link__icon">▶</span>
+                    <span class="navigation-link__label">Mi entreno</span>
+                </a>
+
+                <a
+                    href="#progress"
+                    class="navigation-link"
+                    data-view="progress"
+                >
+                    <span class="navigation-link__icon">▥</span>
+                    <span class="navigation-link__label">Progreso</span>
+                </a>
+
+                <a
+                    href="#exercises"
+                    class="navigation-link"
+                    data-view="exercises"
+                >
+                    <span class="navigation-link__icon">☰</span>
+                    <span class="navigation-link__label">Biblioteca</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar__footer">
+
+                <button
+                    type="button"
+                    class="profile"
+                    id="profile-button"
+                >
+                    <span class="profile__avatar">M</span>
+
+                    <span class="profile__info">
+                        <strong class="profile__name">Manuel</strong>
+                        <small class="profile__status">Plan Premium</small>
+                    </span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MOBILE HEADER
+        ====================================================== -->
+        <header class="mobile-header">
+
+            <a href="#home" class="brand">
+                <span class="brand__icon">R</span>
+                <span class="brand__name">
+                    Rep<span>Up</span>
+                </span>
+            </a>
+
+            <div class="mobile-header__actions">
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="mobile-coach-button"
+                    aria-label="Abrir AI Coach"
+                >
+                    ✦
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-avatar"
+                    id="mobile-profile-button"
+                    aria-label="Abrir perfil"
+                >
+                    M
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+        <main class="main-content">
+
+            <!-- =================================================
+                 VIEW: HOME
+            ================================================== -->
+            <section
+                class="view view--active"
+                id="view-home"
+                data-view-section="home"
+            >
+
+                <header class="page-header">
+
+                    <div class="page-header__content">
+                        <span class="eyebrow">
+                            YOUR TRAINING. EVOLVED.
+                        </span>
+
+                        <h1 class="page-title">
+                            Hola de nuevo,
+                            <span class="text-gradient">Manuel</span>.
+                        </h1>
+
+                        <p class="page-description">
+                            Tu siguiente sesión está lista.
+                        </p>
+                    </div>
+
+                    <div class="page-header__actions">
+
+                        <button
+                            type="button"
+                            class="button button--secondary"
+                            id="home-coach-button"
+                        >
+                            ✦ AI Coach
+                        </button>
+
+                    </div>
+
+                </header>
+
+
+                <!-- HOME HERO -->
+                <div class="dashboard-grid dashboard-grid--hero">
+
+                    <article class="card hero-card">
+
+                        <div class="hero-card__content">
+
+                            <div class="hero-card__top">
+                                <span class="badge badge--cyan">
+                                    HOY
+                                </span>
+
+                                <span class="hero-card__status">
+                                    ● LISTO
+                                </span>
+                            </div>
+
+                            <span class="eyebrow">
+                                PUSH DAY
+                            </span>
+
+                            <h2 class="hero-card__title">
+                                Termina fuerte.
+                                <span class="text-gradient">
+                                    Rompe tu PR.
+                                </span>
+                            </h2>
+
+                            <p class="hero-card__description">
+                                Pecho · Hombros · Tríceps
+                            </p>
+
+                            <div class="hero-card__meta">
+
+                                <span>5 ejercicios</span>
+                                <span>55 min</span>
+                                <span>~3,240 kg</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="hero-card__footer">
+
+                            <div class="progress-summary">
+
+                                <div class="progress-summary__header">
+                                    <span>Progreso de hoy</span>
+                                    <strong id="home-progress-percent">
+                                        0%
+                                    </strong>
+                                </div>
+
+                                <div
+                                    class="progress"
+                                    role="progressbar"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    aria-valuenow="0"
+                                    id="home-progress"
+                                >
+                                    <span
+                                        class="progress__bar"
+                                        id="home-progress-bar"
+                                    ></span>
+                                </div>
+
+                            </div>
+
+                            <div class="button-group">
+
+                                <button
+                                    type="button"
+                                    class="button button--primary"
+                                    id="start-home-workout"
+                                >
+                                    ▶ Continuar entrenamiento
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="button button--ghost"
+                                    data-view="builder"
+                                >
+                                    Editar rutina
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- STREAK -->
+                    <article class="card streak-card">
+
+                        <div class="card-header">
+                            <div>
+                                <span class="eyebrow">STREAK</span>
+                                <h2 class="card-title">Tu racha</h2>
+                            </div>
+
+                            <span class="streak-card__icon">🔥</span>
+                        </div>
+
+                        <div class="streak-card__number">
+                            14
+                        </div>
+
+                        <p class="muted">
+                            días consecutivos
+                        </p>
+
+                        <div
+                            class="weekly-calendar"
+                            id="weekly-calendar"
+                            aria-label="Actividad semanal"
+                        >
+
+                            <button type="button" class="calendar-day calendar-day--done">
+                                <span>L</span>
+                                <small>✓</small>
+                            </button>
+
+                            <button type="button" class="calendar-day calendar-day--done">
+                                <span>M</span>
+                                <small>✓</small>
+                            </button>
+
+                            <button type="button" class="calendar-day calendar-day--done">
+                                <span>X</span>
+                                <small>✓</small>
+                            </button>
+
+                            <button type="button" class="calendar-day calendar-day--done">
+                                <span>J</span>
+                                <small>✓</small>
+                            </button>
+
+                            <button type="button" class="calendar-day calendar-day--today">
+                                <span>V</span>
+                                <small>•</small>
+                            </button>
+
+                            <button type="button" class="calendar-day">
+                                <span>S</span>
+                                <small>•</small>
+                            </button>
+
+                            <button type="button" class="calendar-day">
+                                <span>D</span>
+                                <small>•</small>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- QUICK STATS -->
+                <section class="stats-grid" aria-label="Estadísticas">
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Volumen
+                        </span>
+
+                        <strong class="stat-card__value">
+                            42.8K
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 12.4%
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Entrenamientos
+                        </span>
+
+                        <strong class="stat-card__value">
+                            24
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 4 este mes
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            PRs logrados
+                        </span>
+
+                        <strong class="stat-card__value">
+                            8
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 3 este mes
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Consistencia
+                        </span>
+
+                        <strong class="stat-card__value">
+                            87%
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            Excelente
+                        </span>
+                    </article>
+
+                </section>
+
+
+                <!-- TODAY + COACH -->
+                <div class="dashboard-grid dashboard-grid--content">
+
+                    <article class="card workout-summary">
+
+                        <header class="card-header">
+
+                            <div>
+                                <span class="eyebrow">
+                                    NEXT UP
+                                </span>
+
+                                <h2 class="card-title">
+                                    Tu sesión de hoy
+                                </h2>
+                            </div>
+
+                            <span
+                                class="badge"
+                                id="home-exercise-count"
+                            >
+                                0 / 5
+                            </span>
+
+                        </header>
+
+
+                        <div
+                            class="exercise-list"
+                            id="home-exercise-list"
+                        >
+
+                            <!-- Los ejercicios se cargarán después con JS -->
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="card coach-insight">
+
+                        <span class="eyebrow">
+                            COACH INSIGHT
+                        </span>
+
+                        <div class="coach-insight__icon">
+                            ✦
+                        </div>
+
+                        <h2 class="card-title">
+                            Tu rendimiento está subiendo.
+                        </h2>
+
+                        <p class="card-description">
+                            Has aumentado tu volumen un 12.4% este mes.
+                            Mantén 1–2 repeticiones en reserva en tus
+                            movimientos principales.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="button button--ghost"
+                            id="coach-insight-button"
+                        >
+                            Explícame esto
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VIEW: ROUTINE BUILDER
+            ================================================== -->
+            <section
+                class="view"
+                id="view-builder"
+                data-view-section="builder"
+            >
+
+                <header class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            ROUTINE BUILDER
+                        </span>
+
+                        <h1 class="page-title">
+                            Diseña tu rutina.
+                        </h1>
+
+                        <p class="page-description">
+                            Personaliza cada parte de tu entrenamiento.
+                        </p>
+                    </div>
+
+                </header>
+
+
+                <div class="routine-builder">
+
+                    <!-- BUILDER STEPPER -->
+                    <nav
+                        class="builder-stepper"
+                        aria-label="Pasos para crear rutina"
+                    >
+
+                        <button
+                            type="button"
+                            class="builder-step builder-step--active"
+                            data-builder-step="1"
+                        >
+                            <span>01</span>
+                            <strong>Objetivo</strong>
+                        </button>
+
+                        <span class="builder-stepper__line"></span>
+
+                        <button
+                            type="button"
+                            class="builder-step"
+                            data-builder-step="2"
+                        >
+                            <span>02</span>
+                            <strong>Nivel</strong>
+                        </button>
+
+                        <span class="builder-stepper__line"></span>
+
+                        <button
+                            type="button"
+                            class="builder-step"
+                            data-builder-step="3"
+                        >
+                            <span>03</span>
+                            <strong>Días</strong>
+                        </button>
+
+                        <span class="builder-stepper__line"></span>
+
+                        <button
+                            type="button"
+                            class="builder-step"
+                            data-builder-step="4"
+                        >
+                            <span>04</span>
+                            <strong>Equipo</strong>
+                        </button>
+
+                    </nav>
+
+
+                    <!-- BUILDER CONTENT -->
+                    <div class="builder-layout">
+
+                        <div class="card builder-card">
+
+                            <!-- STEP 1 -->
+                            <div
+                                class="builder-panel builder-panel--active"
+                                data-builder-panel="1"
+                            >
+
+                                <span class="eyebrow">
+                                    PASO 01
+                                </span>
+
+                                <h2 class="section-title">
+                                    ¿Qué quieres conseguir?
+                                </h2>
+
+                                <p class="section-description">
+                                    Elegiremos volumen, intensidad y
+                                    estructura según tu objetivo.
+                                </p>
+
+
+                                <div class="choice-grid">
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="goal"
+                                        data-value="muscle"
+                                    >
+                                        <span class="choice-card__icon">💪</span>
+                                        <strong>Ganar músculo</strong>
+                                        <small>
+                                            Hipertrofia y volumen
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="goal"
+                                        data-value="strength"
+                                    >
+                                        <span class="choice-card__icon">⚡</span>
+                                        <strong>Ganar fuerza</strong>
+                                        <small>
+                                            Fuerza y rendimiento
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="goal"
+                                        data-value="fitness"
+                                    >
+                                        <span class="choice-card__icon">🏃</span>
+                                        <strong>Condición física</strong>
+                                        <small>
+                                            Resistencia y capacidad
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="goal"
+                                        data-value="fat-loss"
+                                    >
+                                        <span class="choice-card__icon">🔥</span>
+                                        <strong>Perder grasa</strong>
+                                        <small>
+                                            Gasto y definición
+                                        </small>
+                                    </button>
+
+                                </div>
+
+
+                                <footer class="builder-panel__footer">
+
+                                    <button
+                                        type="button"
+                                        class="button button--primary"
+                                        data-next-builder-step="2"
+                                    >
+                                        Siguiente →
+                                    </button>
+
+                                </footer>
+
+                            </div>
+
+
+                            <!-- STEP 2 -->
+                            <div
+                                class="builder-panel"
+                                data-builder-panel="2"
+                            >
+
+                                <span class="eyebrow">
+                                    PASO 02
+                                </span>
+
+                                <h2 class="section-title">
+                                    ¿Cuál es tu nivel?
+                                </h2>
+
+                                <p class="section-description">
+                                    Ajustaremos intensidad, volumen y
+                                    complejidad.
+                                </p>
+
+
+                                <div class="choice-grid choice-grid--three">
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="level"
+                                        data-value="beginner"
+                                    >
+                                        <span class="choice-card__icon">🌱</span>
+                                        <strong>Principiante</strong>
+                                        <small>
+                                            Estoy empezando
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="level"
+                                        data-value="intermediate"
+                                    >
+                                        <span class="choice-card__icon">🚀</span>
+                                        <strong>Intermedio</strong>
+                                        <small>
+                                            Entreno regularmente
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="level"
+                                        data-value="advanced"
+                                    >
+                                        <span class="choice-card__icon">🔥</span>
+                                        <strong>Avanzado</strong>
+                                        <small>
+                                            Años de entrenamiento
+                                        </small>
+                                    </button>
+
+                                </div>
+
+
+                                <footer class="builder-panel__footer">
+
+                                    <button
+                                        type="button"
+                                        class="button button--ghost"
+                                        data-previous-builder-step="1"
+                                    >
+                                        ← Atrás
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="button button--primary"
+                                        data-next-builder-step="3"
+                                    >
+                                        Siguiente →
+                                    </button>
+
+                                </footer>
+
+                            </div>
+
+
+                            <!-- STEP 3 -->
+                            <div
+                                class="builder-panel"
+                                data-builder-panel="3"
+                            >
+
+                                <span class="eyebrow">
+                                    PASO 03
+                                </span>
+
+                                <h2 class="section-title">
+                                    ¿Qué días entrenas?
+                                </h2>
+
+                                <p class="section-description">
+                                    Selecciona los días disponibles.
+                                </p>
+
+
+                                <div
+                                    class="training-days"
+                                    id="training-days"
+                                >
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="monday"
+                                    >
+                                        <strong>L</strong>
+                                        <span>Lun</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="tuesday"
+                                    >
+                                        <strong>M</strong>
+                                        <span>Mar</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="wednesday"
+                                    >
+                                        <strong>X</strong>
+                                        <span>Mié</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="thursday"
+                                    >
+                                        <strong>J</strong>
+                                        <span>Jue</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="friday"
+                                    >
+                                        <strong>V</strong>
+                                        <span>Vie</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="saturday"
+                                    >
+                                        <strong>S</strong>
+                                        <span>Sáb</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="training-day"
+                                        data-day="sunday"
+                                    >
+                                        <strong>D</strong>
+                                        <span>Dom</span>
+                                    </button>
+
+                                </div>
+
+
+                                <div class="builder-preview">
+
+                                    <span class="eyebrow">
+                                        VISTA PREVIA
+                                    </span>
+
+                                    <h3>
+                                        Tu semana
+                                    </h3>
+
+                                    <p
+                                        class="muted"
+                                        id="builder-week-preview"
+                                    >
+                                        Selecciona tus días para
+                                        visualizar tu semana.
+                                    </p>
+
+                                </div>
+
+
+                                <footer class="builder-panel__footer">
+
+                                    <button
+                                        type="button"
+                                        class="button button--ghost"
+                                        data-previous-builder-step="2"
+                                    >
+                                        ← Atrás
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="button button--primary"
+                                        data-next-builder-step="4"
+                                    >
+                                        Siguiente →
+                                    </button>
+
+                                </footer>
+
+                            </div>
+
+
+                            <!-- STEP 4 -->
+                            <div
+                                class="builder-panel"
+                                data-builder-panel="4"
+                            >
+
+                                <span class="eyebrow">
+                                    PASO 04
+                                </span>
+
+                                <h2 class="section-title">
+                                    ¿Con qué entrenas?
+                                </h2>
+
+                                <p class="section-description">
+                                    La selección de equipo determina los
+                                    ejercicios disponibles.
+                                </p>
+
+
+                                <div class="choice-grid">
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="equipment"
+                                        data-value="gym"
+                                    >
+                                        <span class="choice-card__icon">🏋️</span>
+                                        <strong>Gimnasio completo</strong>
+                                        <small>
+                                            Barras, máquinas y poleas
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="equipment"
+                                        data-value="home"
+                                    >
+                                        <span class="choice-card__icon">🏠</span>
+                                        <strong>Casa</strong>
+                                        <small>
+                                            Mancuernas y accesorios
+                                        </small>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="choice-card"
+                                        data-choice="equipment"
+                                        data-value="bodyweight"
+                                    >
+                                        <span class="choice-card__icon">◉</span>
+                                        <strong>Peso corporal</strong>
+                                        <small>
+                                            Sin equipo
+                                        </small>
+                                    </button>
+
+                                </div>
+
+
+                                <footer class="builder-panel__footer">
+
+                                    <button
+                                        type="button"
+                                        class="button button--ghost"
+                                        data-previous-builder-step="3"
+                                    >
+                                        ← Atrás
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="button button--primary"
+                                        id="generate-routine"
+                                    >
+                                        ✨ Generar rutina
+                                    </button>
+
+                                </footer>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ROUTINE LIVE PREVIEW -->
+                        <aside class="card routine-preview">
+
+                            <header class="card-header">
+
+                                <div>
+                                    <span class="eyebrow">
+                                        LIVE PREVIEW
+                                    </span>
+
+                                    <h2 class="card-title">
+                                        Tu rutina
+                                    </h2>
+                                </div>
+
+                                <span class="badge">
+                                    BORRADOR
+                                </span>
+
+                            </header>
+
+
+                            <div class="routine-preview__summary">
+
+                                <div>
+                                    <span>Objetivo</span>
+                                    <strong id="preview-goal">
+                                        —
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <span>Nivel</span>
+                                    <strong id="preview-level">
+                                        —
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <span>Días</span>
+                                    <strong id="preview-days">
+                                        0
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <span>Equipo</span>
+                                    <strong id="preview-equipment">
+                                        —
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="routine-preview__exercises">
+
+                                <span class="eyebrow">
+                                    EJERCICIOS
+                                </span>
+
+                                <div
+                                    class="mini-exercise-list"
+                                    id="routine-preview-list"
+                                >
+                                    <p class="muted">
+                                        Completa los pasos para generar
+                                        una propuesta.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VIEW: LIVE WORKOUT
+            ================================================== -->
+            <section
+                class="view"
+                id="view-workout"
+                data-view-section="workout"
+            >
+
+                <header class="page-header workout-page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            LIVE WORKOUT
+                        </span>
+
+                        <h1 class="page-title">
+                            Push Day
+                        </h1>
+
+                        <p
+                            class="page-description"
+                            id="workout-progress-label"
+                        >
+                            Ejercicio 1 de 5
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="button button--ghost"
+                        id="finish-workout"
+                    >
+                        Terminar sesión
+                    </button>
+
+                </header>
+
+
+                <div class="workout-layout">
+
+                    <!-- CURRENT EXERCISE -->
+                    <article class="card live-workout-card">
+
+                        <header class="live-workout-card__header">
+
+                            <span
+                                class="badge badge--magenta"
+                                id="live-exercise-category"
+                            >
+                                PECHO
+                            </span>
+
+                            <span
+                                class="live-workout-card__timer-status"
+                                id="workout-status"
+                            >
+                                ● EN CURSO
+                            </span>
+
+                        </header>
+
+
+                        <div class="live-exercise">
+
+                            <span class="eyebrow">
+                                EJERCICIO ACTUAL
+                            </span>
+
+                            <h2
+                                class="live-exercise__name"
+                                id="live-exercise-name"
+                            >
+                                Bench Press
+                            </h2>
+
+                            <p
+                                class="live-exercise__target"
+                                id="live-exercise-target"
+                            >
+                                4 series × 8 reps
+                            </p>
+
+
+                            <!-- WEIGHT CONTROL -->
+                            <div class="weight-control">
+
+                                <button
+                                    type="button"
+                                    class="round-button"
+                                    id="decrease-weight"
+                                    aria-label="Disminuir peso"
+                                >
+                                    −
+                                </button>
+
+                                <div class="weight-control__value">
+                                    <strong id="live-weight">
+                                        80
+                                    </strong>
+
+                                    <span>kg</span>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="round-button"
+                                    id="increase-weight"
+                                    aria-label="Aumentar peso"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+
+                            <!-- SETS -->
+                            <div
+                                class="set-grid"
+                                id="live-set-grid"
+                            >
+                                <!-- JS -->
+                            </div>
+
+
+                            <!-- REST TIMER -->
+                            <div class="rest-timer">
+
+                                <span class="eyebrow">
+                                    DESCANSO
+                                </span>
+
+                                <strong
+                                    class="rest-timer__value"
+                                    id="rest-timer"
+                                >
+                                    01:30
+                                </strong>
+
+                                <div class="rest-timer__actions">
+
+                                    <button
+                                        type="button"
+                                        class="button button--ghost"
+                                        id="reset-rest-timer"
+                                    >
+                                        ↻ Reiniciar
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="button button--primary"
+                                        id="complete-set"
+                                    >
+                                        ✓ Completar serie
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- WORKOUT QUEUE -->
+                    <aside class="card workout-queue">
+
+                        <header class="card-header">
+
+                            <div>
+                                <span class="eyebrow">
+                                    SESIÓN
+                                </span>
+
+                                <h2 class="card-title">
+                                    Tu entrenamiento
+                                </h2>
+                            </div>
+
+                            <span
+                                class="badge"
+                                id="workout-completed-count"
+                            >
+                                0 / 5
+                            </span>
+
+                        </header>
+
+
+                        <div
+                            class="workout-queue__list"
+                            id="workout-queue-list"
+                        >
+                            <!-- JS -->
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VIEW: PROGRESS
+            ================================================== -->
+            <section
+                class="view"
+                id="view-progress"
+                data-view-section="progress"
+            >
+
+                <header class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            YOUR PROGRESS
+                        </span>
+
+                        <h1 class="page-title">
+                            Tu evolución.
+                        </h1>
+
+                        <p class="page-description">
+                            Entiende cómo estás progresando.
+                        </p>
+                    </div>
+
+                    <select
+                        class="select"
+                        id="progress-period"
+                    >
+                        <option value="8-weeks">
+                            Últimas 8 semanas
+                        </option>
+
+                        <option value="6-months">
+                            Últimos 6 meses
+                        </option>
+
+                        <option value="1-year">
+                            Último año
+                        </option>
+                    </select>
+
+                </header>
+
+
+                <div class="stats-grid">
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Volumen total
+                        </span>
+
+                        <strong class="stat-card__value">
+                            42,850 kg
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 12.4%
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Entrenamientos
+                        </span>
+
+                        <strong class="stat-card__value">
+                            24
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 4
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            Racha
+                        </span>
+
+                        <strong class="stat-card__value">
+                            14
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            Récord personal
+                        </span>
+                    </article>
+
+                    <article class="card stat-card">
+                        <span class="stat-card__label">
+                            PRs
+                        </span>
+
+                        <strong class="stat-card__value">
+                            8
+                        </strong>
+
+                        <span class="stat-card__trend">
+                            ↑ 3
+                        </span>
+                    </article>
+
+                </div>
+
+
+                <div class="progress-layout">
+
+                    <article class="card chart-card">
+
+                        <header class="card-header">
+
+                            <div>
+                                <span class="eyebrow">
+                                    VOLUMEN
+                                </span>
+
+                                <h2 class="card-title">
+                                    Carga semanal
+                                </h2>
+
+                                <p
+                                    class="muted"
+                                    id="chart-period-label"
+                                >
+                                    Últimas 8 semanas
+                                </p>
+                            </div>
+
+                            <strong
+                                class="chart-card__value"
+                                id="chart-selected-value"
+                            >
+                                5,420 kg
+                            </strong>
+
+                        </header>
+
+
+                        <div
+                            class="chart"
+                            id="progress-chart"
+                            role="img"
+                            aria-label="Gráfica de volumen semanal"
+                        >
+
+                            <!-- Los datos visuales se conectarán después -->
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="card personal-records">
+
+                        <header class="card-header">
+
+                            <div>
+                                <span class="eyebrow">
+                                    PERSONAL RECORDS
+                                </span>
+
+                                <h2 class="card-title">
+                                    Tus PRs
+                                </h2>
+                            </div>
+
+                        </header>
+
+
+                        <ul class="record-list">
+
+                            <li class="record">
+                                <span>Bench Press</span>
+                                <strong>100 kg</strong>
+                            </li>
+
+                            <li class="record">
+                                <span>Squat</span>
+                                <strong>130 kg</strong>
+                            </li>
+
+                            <li class="record">
+                                <span>Deadlift</span>
+                                <strong>160 kg</strong>
+                            </li>
+
+                            <li class="record">
+                                <span>Shoulder Press</span>
+                                <strong>60 kg</strong>
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VIEW: EXERCISE LIBRARY
+            ================================================== -->
+            <section
+                class="view"
+                id="view-exercises"
+                data-view-section="exercises"
+            >
+
+                <header class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            EXERCISE LIBRARY
+                        </span>
+
+                        <h1 class="page-title">
+                            Biblioteca.
+                        </h1>
+
+                        <p class="page-description">
+                            Explora ejercicios y añádelos a tu rutina.
+                        </p>
+                    </div>
+
+                </header>
+
+
+                <!-- SEARCH -->
+                <div class="exercise-search">
+
+                    <label
+                        class="search-field"
+                        for="exercise-search"
+                    >
+                        <span>⌕</span>
+
+                        <input
+                            type="search"
+                            id="exercise-search"
+                            placeholder="Buscar ejercicio..."
+                            autocomplete="off"
+                        >
+                    </label>
+
+                </div>
+
+
+                <!-- FILTERS -->
+                <div
+                    class="filter-tabs"
+                    id="exercise-filters"
+                    role="tablist"
+                    aria-label="Filtrar ejercicios"
+                >
+
+                    <button
+                        type="button"
+                        class="filter-tab filter-tab--active"
+                        data-filter="all"
+                    >
+                        Todos
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-tab"
+                        data-filter="chest"
+                    >
+                        Pecho
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-tab"
+                        data-filter="back"
+                    >
+                        Espalda
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-tab"
+                        data-filter="legs"
+                    >
+                        Piernas
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-tab"
+                        data-filter="shoulders"
+                    >
+                        Hombros
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-tab"
+                        data-filter="arms"
+                    >
+                        Brazos
+                    </button>
+
+                </div>
+
+
+                <!-- EXERCISE GRID -->
+                <div
+                    class="exercise-library-grid"
+                    id="exercise-library"
+                >
+
+                    <!--
+                        Las tarjetas de ejercicios se definirán
+                        posteriormente con JavaScript.
+                    -->
+
+                    <article
+                        class="exercise-library-card"
+                        data-category="chest"
+                    >
+
+                        <div class="exercise-library-card__media">
+                            <span>🏋️</span>
+                        </div>
+
+                        <div class="exercise-library-card__body">
+
+                            <span class="eyebrow">
+                                PECHO
+                            </span>
+
+                            <h2 class="exercise-library-card__title">
+                                Bench Press
+                            </h2>
+
+                            <p class="muted">
+                                Press horizontal con barra.
+                            </p>
+
+                            <div class="exercise-library-card__meta">
+
+                                <span>Barra</span>
+                                <span>Intermedio</span>
+
+                            </div>
+
+                            <div class="button-group">
+
+                                <button
+                                    type="button"
+                                    class="button button--ghost"
+                                    data-exercise-details="bench-press"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="button button--primary"
+                                    data-add-exercise="bench-press"
+                                >
+                                    ＋ Añadir
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+                <div
+                    class="empty-state"
+                    id="exercise-empty-state"
+                    hidden
+                >
+
+                    <span class="empty-state__icon">
+                        ⌕
+                    </span>
+
+                    <h2>
+                        No encontramos ejercicios.
+                    </h2>
+
+                    <p class="muted">
+                        Prueba con otro término o categoría.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+             MOBILE BOTTOM NAVIGATION
+        ====================================================== -->
+        <nav
+            class="bottom-navigation"
+            aria-label="Navegación móvil"
+        >
+
+            <a
+                href="#home"
+                class="bottom-navigation__item bottom-navigation__item--active"
+                data-view="home"
+            >
+                <span>⌂</span>
+                <small>Inicio</small>
+            </a>
+
+            <a
+                href="#builder"
+                class="bottom-navigation__item"
+                data-view="builder"
+            >
+                <span>＋</span>
+                <small>Crear</small>
+            </a>
+
+            <a
+                href="#workout"
+                class="bottom-navigation__item"
+                data-view="workout"
+            >
+                <span>▶</span>
+                <small>Entrenar</small>
+            </a>
+
+            <a
+                href="#progress"
+                class="bottom-navigation__item"
+                data-view="progress"
+            >
+                <span>▥</span>
+                <small>Progreso</small>
+            </a>
+
+            <a
+                href="#exercises"
+                class="bottom-navigation__item"
+                data-view="exercises"
+            >
+                <span>☰</span>
+                <small>Biblioteca</small>
+            </a>
+
+        </nav>
+
+
+        <!-- =====================================================
+             AI COACH
+        ====================================================== -->
+        <div
+            class="modal"
+            id="coach-modal"
+            aria-hidden="true"
+        >
+
+            <div
+                class="modal__backdrop"
+                data-close-modal="coach-modal"
+            ></div>
+
+            <section
+                class="modal__content coach-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="coach-title"
+            >
+
+                <header class="modal__header">
+
+                    <div class="coach-header">
+
+                        <div class="coach-avatar">
+                            ✦
+                        </div>
+
+                        <div>
+                            <span class="eyebrow">
+                                AI COACH
+                            </span>
+
+                            <h2 id="coach-title">
+                                RepUp Coach
+                            </h2>
+
+                            <span class="coach-status">
+                                ● En línea
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="icon-button"
+                        data-close-modal="coach-modal"
+                        aria-label="Cerrar AI Coach"
+                    >
+                        ✕
+                    </button>
+
+                </header>
+
+
+                <div
+                    class="coach-messages"
+                    id="coach-messages"
+                >
+
+                    <article class="chat-message chat-message--coach">
+
+                        <div class="chat-message__avatar">
+                            ✦
+                        </div>
+
+                        <div class="chat-message__body">
+                            <p>
+                                ¡Hola Manuel! Estoy listo para ayudarte
+                                con tu entrenamiento.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="coach-suggestions">
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-coach-prompt="¿Qué peso debería usar?"
+                    >
+                        ¿Qué peso uso?
+                    </button>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-coach-prompt="Estoy cansado hoy"
+                    >
+                        Estoy cansado
+                    </button>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-coach-prompt="Explícame la técnica"
+                    >
+                        Técnica
+                    </button>
+
+                </div>
+
+
+                <form
+                    class="coach-input"
+                    id="coach-form"
+                >
+
+                    <input
+                        type="text"
+                        id="coach-input"
+                        placeholder="Pregunta a tu coach..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="submit"
+                        class="button button--primary"
+                    >
+                        Enviar
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+             EXERCISE DETAIL MODAL
+        ====================================================== -->
+        <div
+            class="modal"
+            id="exercise-modal"
+            aria-hidden="true"
+        >
+
+            <div
+                class="modal__backdrop"
+                data-close-modal="exercise-modal"
+            ></div>
+
+            <section
+                class="modal__content exercise-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="exercise-modal-title"
+            >
+
+                <header class="modal__header">
+
+                    <div>
+                        <span
+                            class="eyebrow"
+                            id="exercise-modal-category"
+                        >
+                            PECHO
+                        </span>
+
+                        <h2 id="exercise-modal-title">
+                            Bench Press
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="icon-button"
+                        data-close-modal="exercise-modal"
+                        aria-label="Cerrar detalles"
+                    >
+                        ✕
+                    </button>
+
+                </header>
+
+
+                <div class="exercise-detail">
+
+                    <div
+                        class="exercise-detail__media"
+                        id="exercise-modal-media"
+                    >
+                        🏋️
+                    </div>
+
+                    <div class="exercise-detail__content">
+
+                        <div class="exercise-detail__meta">
+
+                            <span class="badge">
+                                Barra
+                            </span>
+
+                            <span class="badge">
+                                Intermedio
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Técnica
+                        </h3>
+
+                        <ol class="instruction-list">
+
+                            <li>
+                                Coloca los pies firmes en el suelo.
+                            </li>
+
+                            <li>
+                                Mantén los omóplatos retraídos.
+                            </li>
+
+                            <li>
+                                Baja la barra de forma controlada.
+                            </li>
+
+                            <li>
+                                Empuja manteniendo una trayectoria estable.
+                            </li>
+
+                        </ol>
+
+                    </div>
+
+                </div>
+
+
+                <footer class="modal__footer">
+
+                    <button
+                        type="button"
+                        class="button button--ghost"
+                        data-close-modal="exercise-modal"
+                    >
+                        Cerrar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="button button--primary"
+                        id="modal-add-exercise"
+                    >
+                        ＋ Añadir a rutina
+                    </button>
+
+                </footer>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+             TOAST / NOTIFICATIONS
+        ====================================================== -->
+        <div
+            class="toast"
+            id="toast"
+            role="status"
+            aria-live="polite"
+        >
+            <span class="toast__icon">✓</span>
+            <span
+                class="toast__message"
+                id="toast-message"
+            >
+                Acción completada.
+            </span>
+        </div>
+
+    </div>
+
+    <!-- JavaScript se conectará después -->
+    <!-- <script src="js/main.js"></script> -->
+
+</body>
+</html>
