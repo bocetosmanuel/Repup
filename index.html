@@ -158,40 +158,50 @@
                 data-view-section="home"
             >
 
-                <header class="page-header">
+                <header class="page-header home-command-bar">
 
                     <div class="page-header__content">
-                        <span class="eyebrow">
-                            YOUR TRAINING. EVOLVED.
-                        </span>
+                        <div class="home-command-bar__meta">
+                            <time class="eyebrow" datetime="2026-08-25">Martes, 25 de agosto</time>
+                            <span class="home-command-bar__live">
+                                <i aria-hidden="true"></i> Sistema listo
+                            </span>
+                        </div>
 
                         <h1 class="page-title">
-                            Hola de nuevo,
-                            <span class="text-gradient">Manuel</span>.
+                            Entrena con
+                            <span class="text-gradient">intención.</span>
                         </h1>
 
                         <p class="page-description">
-                            Tu siguiente sesión está lista.
+                            Buen día, Manuel. Tu bloque de empuje está listo para empezar.
                         </p>
                     </div>
 
-                    <div class="page-header__actions">
+                    <div class="page-header__actions home-command-bar__actions">
+                        <nav class="view-switcher" aria-label="Acciones rápidas">
+                            <button type="button" class="view-switcher__item view-switcher__item--active">
+                                Hoy
+                            </button>
+                            <button type="button" class="view-switcher__item" data-view="progress">
+                                Progreso
+                            </button>
+                        </nav>
 
                         <button
                             type="button"
                             class="button button--secondary"
                             id="home-coach-button"
                         >
-                            ✦ AI Coach
+                            <span aria-hidden="true">✦</span> Preguntar al coach
                         </button>
-
                     </div>
 
                 </header>
 
 
                 <!-- HOME HERO -->
-                <div class="dashboard-grid dashboard-grid--hero">
+                <div class="dashboard-grid dashboard-grid--hero home-primary-grid">
 
                     <article class="card hero-card">
 
@@ -199,7 +209,7 @@
 
                             <div class="hero-card__top">
                                 <span class="badge badge--cyan">
-                                    HOY
+                                    SESIÓN 03 · HOY
                                 </span>
 
                                 <span class="hero-card__status">
@@ -212,9 +222,9 @@
                             </span>
 
                             <h2 class="hero-card__title">
-                                Termina fuerte.
+                                Haz que cuente.
                                 <span class="text-gradient">
-                                    Rompe tu PR.
+                                    Supera tu base.
                                 </span>
                             </h2>
 
@@ -222,13 +232,11 @@
                                 Pecho · Hombros · Tríceps
                             </p>
 
-                            <div class="hero-card__meta">
-
-                                <span>5 ejercicios</span>
-                                <span>55 min</span>
-                                <span>~3,240 kg</span>
-
-                            </div>
+                            <dl class="hero-card__meta" aria-label="Resumen de sesión">
+                                <div><dt>Ejercicios</dt><dd>05</dd></div>
+                                <div><dt>Tiempo</dt><dd>55 min</dd></div>
+                                <div><dt>Volumen</dt><dd>3.24 t</dd></div>
+                            </dl>
 
                         </div>
 
@@ -354,7 +362,7 @@
 
 
                 <!-- QUICK STATS -->
-                <section class="stats-grid" aria-label="Estadísticas">
+                <section class="stats-grid home-metrics" aria-label="Estadísticas de rendimiento">
 
                     <article class="card stat-card">
                         <span class="stat-card__label">
@@ -416,7 +424,7 @@
 
 
                 <!-- TODAY + COACH -->
-                <div class="dashboard-grid dashboard-grid--content">
+                <div class="dashboard-grid dashboard-grid--content home-lower-grid">
 
                     <article class="card workout-summary">
 
