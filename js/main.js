@@ -184,8 +184,10 @@
 
 
     /* ======================================================================
-       03. LOCAL STORAGE
+       03. PERSISTENCE (API with local fallback)
        ====================================================================== */
+
+    let stateSyncTimer = null;
 
     const saveState = () => {
         const stateToSave = {
@@ -206,6 +208,21 @@
             "repup-state",
             JSON.stringify(stateToSave)
         );
+
+        clearTimeout(stateSyncTimer);
+
+        stateSyncTimer = setTimeout(
+            () => {
+                fetch("/api/state", {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(stateToSave)
+                }).catch(() => {
+                    // The app may be opened directly as a file; localStorage remains available.
+                });
+            },
+            300
+        );
     };
 
 
@@ -217,7 +234,18 @@
         }
 
         try {
-            const parsed = JSON.parse(saved);
+            applySavedState(JSON.parse(saved));
+
+        } catch (error) {
+            console.warn(
+                "RepUp: no se pudo cargar el estado.",
+                error
+            );
+        }
+    };
+
+
+    const applySavedState = (parsed) => {
 
             if (parsed.builder) {
                 state.builder = {
@@ -244,11 +272,32 @@
                 };
             }
 
-        } catch (error) {
-            console.warn(
-                "RepUp: no se pudo cargar el estado.",
-                error
-            );
+    };
+
+
+    const loadRemoteState = async () => {
+        try {
+            const response = await fetch("/api/state");
+
+            if (!response.ok) {
+                return;
+            }
+
+            const { state: remoteState } = await response.json();
+
+            if (!remoteState) {
+                return;
+            }
+
+            applySavedState(remoteState);
+            localStorage.setItem("repup-state", JSON.stringify(remoteState));
+            renderHome();
+            renderBuilder();
+            renderWorkout();
+            renderProgress();
+            renderExerciseLibrary();
+        } catch (_) {
+            // Local fallback is intentional when the API is unavailable.
         }
     };
 
@@ -2849,18 +2898,26 @@
 
 
         setTimeout(
-            () => {
+            async () => {
 
-                const response =
-                    generateCoachResponse(
-                        message
-                    );
+                let response = generateCoachResponse(message);
 
+                try {
+                    const apiResponse = await fetch("/api/coach", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ message })
+                    });
+                    const payload = await apiResponse.json();
 
-                addCoachMessage(
-                    response,
-                    "coach"
-                );
+                    if (apiResponse.ok && payload.response) {
+                        response = payload.response;
+                    }
+                } catch (_) {
+                    // The local response keeps the coach useful without the server.
+                }
+
+                addCoachMessage(response, "coach");
 
             },
             450
@@ -3085,6 +3142,8 @@
     function initialize() {
 
         loadState();
+
+        loadRemoteState();
 
         initializeNavigation();
 

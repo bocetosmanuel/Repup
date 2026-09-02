@@ -17,6 +17,8 @@ Repup/
 │   └── style.css              # Estilos responsivos con enfoque Mobile-First y variables neón
 ├── js/
 │   └── main.js                # Lógica interactiva de navegación SPA y controles
+├── server.js                   # API REST y servidor web local
+├── package.json                # Comando para iniciar el proyecto
 ├── index.html                 # Estructura del dashboard y secciones (vistas)
 └── README.md                  # Documentación del proyecto (este archivo)
 ```
@@ -64,6 +66,19 @@ El archivo [main.js](file:///c:/Users/agrod/Desktop/WEBS/Repup/js/main.js) manej
 
 ## 🚀 Instrucciones de Uso
 
-1. Abre el archivo [index.html](file:///c:/Users/agrod/Desktop/WEBS/Repup/index.html) en tu navegador preferido.
-2. Si estás en escritorio, puedes usar la herramienta de inspección del navegador para simular dispositivos móviles (como iPhone o Android) y experimentar la navegación inferior nativa y los paneles táctiles responsivos.
-3. Procede a crear tu rutina, registrar tus ejercicios del día y chatear con el coach de IA para verificar toda la interactividad.
+1. En una terminal dentro del proyecto, ejecuta `npm start`.
+2. Abre `http://localhost:3000` en tu navegador.
+3. Si estás en escritorio, puedes usar la herramienta de inspección del navegador para simular dispositivos móviles (como iPhone o Android) y experimentar la navegación inferior nativa y los paneles táctiles responsivos.
+4. Procede a crear tu rutina, registrar tus ejercicios del día y chatear con el coach de IA para verificar toda la interactividad.
+
+## API REST
+
+La API no requiere dependencias externas y guarda el estado de la rutina en `data/repup.json`.
+
+| Método | Ruta | Uso |
+| --- | --- | --- |
+| `GET` | `/api/health` | Comprueba que la API está activa. |
+| `GET` | `/api/exercises` | Devuelve el catálogo de ejercicios. |
+| `GET` | `/api/state` | Obtiene el estado guardado. |
+| `PUT` | `/api/state` | Guarda el estado de la app como JSON. |
+| `POST` | `/api/coach` | Recibe `{ "message": "..." }` y devuelve la respuesta del coach. |
